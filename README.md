@@ -2,7 +2,7 @@
 
 Sodoku Backtrace
 
-##Description
+## Description
 
 Small implementation of a depth first search on a sodoku game board to solve
 
@@ -12,6 +12,7 @@ Games can be generatered with varying difficulty from https://qqwing.com/generat
 
 The grid should be in format:
 
+<pre>
  . . 7 | . . . | 1 . 9
  . 4 . | . . 9 | . . 6
  . . . | . . . | . . 7
@@ -23,6 +24,7 @@ The grid should be in format:
  1 9 . | . . . | . 6 .
  5 2 . | 8 . . | . . .
  7 . . | 5 . . | 2 . .
+</pre>
 
 ## Author
 
