@@ -2,6 +2,8 @@
 
 ## Description 
 
+**This project is currently in development**
+
 This is an implementation of a simple sodoku solver in c++
 
 Run it by adding a text file to the project and changing the INPUT_FILE constant
