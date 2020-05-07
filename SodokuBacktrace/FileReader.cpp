@@ -1,26 +1,31 @@
 #include "FileReader.h"
+#include "EmptyCell.h"
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
-FileReader::FileReader(std::string file, std::vector <std::vector <int>> &grid) {
-    int x;
+const int DIMENSION = 9;
+
+FileReader::FileReader(std::string file, std::vector<std::vector <Cell*>> &grid) {
+    int cnt, x, y;
     string output;
     ifstream fileObj;
     
-    x = 0;
+    cnt = 0;
     fileObj.open(file);
 
     if (fileObj.is_open()) {
         while (!fileObj.eof()) {
+            x = cnt % DIMENSION;
+            y = cnt / DIMENSION;
             fileObj >> output;
             if (output == ".") {
-                grid[0].push_back(NULL);
+                grid [y][x] = &EmptyCell(x, y);
                 ++x;
             }
             else if (std::isdigit(output.at(0))) {
-                grid[0].push_back(stoi(output));
+                grid[y][x] = &Cell(x, y, stoi(output));
                 ++x;
             } 
         }

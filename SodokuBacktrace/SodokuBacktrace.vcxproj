@@ -147,7 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CellCheck.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="EmptyCell.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="SodokuBacktrace.cpp" />
   </ItemGroup>
@@ -156,7 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CellCheck.h" />
+    <ClInclude Include="EmptyCell.h" />
     <ClInclude Include="FileReader.h" />
+    <ClInclude Include="Cell.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

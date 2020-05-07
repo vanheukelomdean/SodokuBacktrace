@@ -1,14 +1,17 @@
 #ifndef CELLCHECK_H
 #define CELLCHECK_H
+#include <set>
 #include <vector>
+
+
 
 const int GRID_DIMENSION = 9;
 const int SQUARE_DIMENSION = 3;
 
-bool checkRow(std::vector <std::vector <int>>& grid, int candidate, int x, int y);
+std::set <int> checkRow(std::vector <std::vector <int>> &grid, std::set <int> &candidates, int y);
 
-bool checkCol(std::vector <std::vector <int>>& grid, int candidate, int x, int y);
+std::set <int> checkCol(std::vector <std::vector <int>> &grid, std::set <int> &candidates, int x);
 
-bool checkSquare(std::vector <std::vector <int>>& grid, int candidate, int x, int y);
+std::set <int> checkSquare(std::vector <std::vector <int>> &grid, std::set <int> &candidates, int x, int y);
 
 #endif
