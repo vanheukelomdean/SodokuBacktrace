@@ -1,5 +1,6 @@
 #include "EmptyCell.h"
 #include <algorithm>
+#include <iostream>
 #include <iterator>
 #include <set>
 #include <vector>
@@ -8,14 +9,25 @@ EmptyCell::EmptyCell(int x, int y): Cell(x, y, NULL) {
 	this->candidates = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 }
 
-void EmptyCell::RemoveCandidates(std::vector <std::vector <Cell*>> &grid) {
+void EmptyCell::RemoveCandidates() {
+	this->candidates.erase(this->value);
+}
+
+void EmptyCell::RemoveCandidates(std::vector <std::vector <Cell*>>& grid) {
 	std::set<int> minus;
+	std::set<int> result;
 
 	this->checkRow(grid, minus);
+
 	this->checkCol(grid, minus);
 
-	std::set_difference(candidates.begin(), candidates.end(), minus.begin(), minus.end(),
-		std::inserter(candidates, candidates.end()));
+	this->checkSquare(grid, minus);
+
+	std::set_difference(this->candidates.begin(), this->candidates.end(), minus.begin(), minus.end(), 
+			std::inserter(result, result.end()));
+
+	this->candidates = result;
+
 }
 
 int EmptyCell::GetNextCandidate() {
@@ -47,4 +59,8 @@ void  EmptyCell::checkSquare(std::vector <std::vector <Cell*>>& grid, std::set<i
 			minus.insert(grid[j][i]->value);
 		}
 	}
+}
+
+bool EmptyCell::is_writable() {
+	return true;
 }

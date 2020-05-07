@@ -1,5 +1,4 @@
 #include "FileReader.h"
-#include "EmptyCell.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -7,7 +6,7 @@
 
 const int DIMENSION = 9;
 
-FileReader::FileReader(std::string file, std::vector<std::vector <Cell*>> &grid) {
+FileReader::FileReader(std::string file, std::vector<std::vector <Cell*>> &grid, std::vector <EmptyCell*> &solution) {
     int cnt, x, y;
     string output;
     ifstream fileObj;
@@ -21,7 +20,9 @@ FileReader::FileReader(std::string file, std::vector<std::vector <Cell*>> &grid)
             y = cnt / DIMENSION;
             fileObj >> output;
             if (output == ".") {
-                grid [y][x] = new EmptyCell(x, y);
+                EmptyCell*  c = new EmptyCell(x, y);
+                grid [y][x] = c;
+                solution.push_back(c);
                 ++cnt;
             }
             else if (std::isdigit(output.at(0))) {

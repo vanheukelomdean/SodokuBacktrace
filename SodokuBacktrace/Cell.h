@@ -9,6 +9,8 @@ public:
 
 	Cell(int x, int y, int value);
 
+	bool is_writable();
+
 protected:
 	int x;
 	int y;

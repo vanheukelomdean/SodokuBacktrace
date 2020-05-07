@@ -156,7 +156,6 @@
     <Text Include="Input.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CellCheck.h" />
     <ClInclude Include="EmptyCell.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Cell.h" />
