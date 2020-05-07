@@ -1,9 +1,8 @@
 #include "FileReader.h"
+#include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <fstream>
-
 
 FileReader::FileReader(std::string file, std::vector <std::vector <int>> &grid) {
     int x;
@@ -17,7 +16,7 @@ FileReader::FileReader(std::string file, std::vector <std::vector <int>> &grid) 
         while (!fileObj.eof()) {
             fileObj >> output;
             if (output == ".") {
-                grid[0].push_back(0);
+                grid[0].push_back(NULL);
                 ++x;
             }
             else if (std::isdigit(output.at(0))) {

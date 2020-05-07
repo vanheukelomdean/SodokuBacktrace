@@ -1,5 +1,5 @@
-
 #include "FileReader.h"
+#include "CellCheck.h"
 #include <iostream>
 #include <vector>
 
@@ -17,6 +17,5 @@ int main() {
     }
 
     FileReader fr = FileReader(INPUT_FILE, grid);
-    
-    cout << "Hello World!\n";
+
 }
