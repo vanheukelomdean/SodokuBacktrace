@@ -21,12 +21,12 @@ FileReader::FileReader(std::string file, std::vector<std::vector <Cell*>> &grid)
             y = cnt / DIMENSION;
             fileObj >> output;
             if (output == ".") {
-                grid [y][x] = &EmptyCell(x, y);
-                ++x;
+                grid [y][x] = new EmptyCell(x, y);
+                ++cnt;
             }
             else if (std::isdigit(output.at(0))) {
-                grid[y][x] = &Cell(x, y, stoi(output));
-                ++x;
+                grid[y][x] = new Cell(x, y, stoi(output));
+                ++cnt;
             } 
         }
     }
