@@ -9,13 +9,15 @@ EmptyCell::EmptyCell(int x, int y): Cell(x, y, NULL) {
 	this->candidates = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 }
 
-void EmptyCell::RemoveCandidates() {
-	this->candidates.erase(this->value);
-}
+
 
 void EmptyCell::RemoveCandidates(std::vector <std::vector <Cell*>>& grid) {
 	std::set<int> minus;
 	std::set<int> result;
+
+	if (this->value == NULL) {
+		this->candidates = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	}
 
 	this->checkRow(grid, minus);
 
@@ -27,11 +29,27 @@ void EmptyCell::RemoveCandidates(std::vector <std::vector <Cell*>>& grid) {
 			std::inserter(result, result.end()));
 
 	this->candidates = result;
-
+}
+void EmptyCell::RemoveValue() {
+	this->candidates.erase(this->value);
+	this->value = NULL;
 }
 
-int EmptyCell::GetNextCandidate() {
-	return *candidates.begin();
+bool EmptyCell::SetValueAsNextCandidate() {
+	std::cout << "Options: ";
+	for (auto it = this->candidates.begin(); it != this->candidates.end(); ++it)
+		std::cout << ' ' << *it;
+	std::cout << "\n";
+
+	if (this->candidates.empty()) {
+		return false;
+	}
+	else {
+		this->value = *this->candidates.begin();
+		
+		std::cout << "Set " << this->value << "\n";
+	}
+	return true;
 }
 
 void EmptyCell::checkRow(std::vector <std::vector <Cell*>>& grid, std::set<int> &minus) {

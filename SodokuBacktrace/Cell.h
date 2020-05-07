@@ -6,14 +6,14 @@
 class Cell {
 public:
 	int value;
-
+	int x;
+	int y;
 	Cell(int x, int y, int value);
 
 	bool is_writable();
 
 protected:
-	int x;
-	int y;
+
 
 };
 

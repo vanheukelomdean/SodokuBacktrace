@@ -9,18 +9,20 @@ const int SQUARE_DIMENSION = 3;
 
 class EmptyCell: public Cell {
 public:
-	EmptyCell(int x, int y);
+	std::set <int> candidates;
 
-	virtual void RemoveCandidates();
+	EmptyCell(int x, int y);
 
 	void RemoveCandidates(std::vector <std::vector <Cell*>>& grid);
 
-	int GetNextCandidate();
+	void RemoveValue();
+
+	bool SetValueAsNextCandidate();
 
 	virtual bool is_writable();
 
 private:
-	std::set <int> candidates;
+
 
 	void checkRow(std::vector <std::vector <Cell*>> &grid, std::set<int> &minus);
 
